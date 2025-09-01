@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS Exercises</title>
+
+    <style> 
+        header { 
+            background-color: lightblue; 
+            padding: 15px; 
+            text-align: center; 
+            position: sticky; 
+            top: 0;  
+        }
+
+        .left { 
+            float: left; 
+            width: 50%;
+            background: lightgray; 
+            padding: 20px; 
+        }
+        .right { 
+            float: right; 
+            width: 50%; 
+            background: lightyellow; 
+            padding: 20px; 
+        }
+
+        img { 
+            max-width: 100%; 
+            height: auto; 
+        }     
+
+        ul { 
+            list-style-type: none; 
+            background: #333; 
+            padding: 0; 
+            margin: 0; 
+        } 
+        li { 
+            display: inline; 
+            margin-right: 20px; 
+        } 
+        a { 
+            color: white; 
+            text-decoration: none; 
+        }
+
+        .btn { 
+            background: green; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            cursor: pointer; 
+        } 
+        .btn:hover { 
+            background: darkgreen; 
+        }
+
+        form { 
+            width: 300px; 
+            margin: 20px auto; 
+        } 
+        input, textarea { 
+            width: 100%; 
+            margin-bottom: 10px;
+            padding: 8px; 
+        }
+
+        .card { 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            padding: 20px; 
+            width: 400px; 
+            margin: 10px auto; 
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1); 
+        }
+
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: white; 
+            padding: 20px; 
+            border: 1px solid black; 
+        } 
+        .modal.show { 
+            display: block; 
+        }
+
+        .row { 
+            display: flex; 
+        } 
+        .col { 
+            flex: 1; 
+            margin: 5px; 
+            padding: 20px; 
+            background: lightgreen; 
+        }
+
+        .dropdown { 
+            position: relative; 
+            display: inline-block; 
+        } 
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: white; 
+            border: 1px solid #ccc; 
+            min-width: 120px; 
+        } 
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+
+        .center { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        } 
+
+        footer { 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+            background: gray; 
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+        }
+
+        .loc { 
+            float: left; 
+            width: 33.3%; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }  
+
+        .gallery { 
+            display: flex; 
+            flex-wrap: wrap; 
+            width: 30%; 
+            margin: 1%; 
+        }
+        
+        .sdcard { 
+            width: 250px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            padding: 15px; 
+            text-align: center; 
+        }
+        .litrato {   
+            width: 100px; 
+            border-radius: 50%; 
+        }
+
+        .banner { 
+            background: lightcoral; 
+            padding: 50px; 
+            text-align: center; 
+        } 
+
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            background: #333; 
+            padding: 10px; 
+        }
+        
+        a { 
+        color: white; 
+        margin: 0 10px; 
+        text-decoration: none; 
+        } 
+
+        .pricing { 
+            display: flex; 
+            justify-content: center; 
+        } 
+        .plan { 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            margin: 10px; 
+            width: 200px; 
+            text-align: center; 
+        }
+        
+        .sidebar { 
+            width: 200px; 
+            float: left; 
+            background: lightcyan; 
+            height: 100vh; 
+            padding: 20px; 
+        } 
+        .content { 
+        margin-left: 220px; 
+        padding: 20px; 
+        } 
+    </style> 
+</head>
+
+<body>
+    <a href="./HTML-Exercises-Guide.html"><button>Return to HTML Exercises Guide</button></a>
+    <a href="../index.html"><button>Return to Home</button></a>
+
+<!-- 44. Navigation Bar (Basic) -->
+    <ul> 
+        <li><a href="#">Home</a></li> 
+        <li><a href="#">About</a></li> 
+        <li><a href="#">Contact</a></li> 
+    </ul>   
+
+<!-- 41. Create a Simple Header with Inline CSS / 52. Sticky Header -->
+    <header> 
+        <h1>My Website</h1> 
+        <p>Scroll down...</p> 
+    </header>
+
+<!-- 57. Simple Banner Section -->
+    <div class="banner"> 
+        <h1>Welcome to My Website</h1> 
+        <p>This is a hero banner</p> 
+    </div> 
+
+<!-- 42. Two-Column Layout (Float Method) -->
+    <div class="left">Left Content</div> 
+    <div class="right">Right Content</div> 
+
+<!-- 43. Responsive Image (CSS Max-Width) -->
+    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1632616567i/59076263.jpg" alt="Sample">
+
+<!-- 45. Styled Button with Hover Effect -->
+<br>    
+<button class="btn">Click Me</button>
+
+<!-- 46. Simple Form Styling / 47. Card Layout (Manual) -->
+    <div class="card"> 
+        <h3>Login</h3> 
+        <p>Input your personal information.</p>
+        <form> 
+            <input type="text" placeholder="Name"> 
+            <input type="email" placeholder="Email"> 
+            <textarea placeholder="Message"></textarea> 
+            <button>Submit</button>
+        </form>
+    </div> 
+
+<!-- 48. Modal Simulation (Hide/Show with CSS) -->
+    <button onclick="document.getElementById('myModal').classList.add('show')">Open Modal</button> 
+    <div id="myModal" class="modal"> 
+        <p>This is a modal!</p> 
+    </div>
+    
+<!-- 49. Grid Layout Using CSS Flexbox -->
+    <div class="row"> 
+        <div class="col">Column 1</div> 
+        <div class="col">Column 2</div> 
+        <div class="col">Column 3</div> 
+    </div> 
+    
+<!-- 50. Simple Dropdown Menu (CSS Hover) -->
+    <div class="dropdown"> 
+        <button>Menu</button> 
+        <div class="dropdown-content"> 
+            <p>Option 1</p> 
+            <p>Option 2</p> 
+        </div> 
+    </div>
+
+<!-- 51. Centering Content with Flexbox-->
+    <div class="center"> 
+        <h1>Centered Text</h1> 
+    </div> 
+
+<!-- 53. Fixed Footer -->
+    <footer>Fixed Footer</footer> 
+
+<!-- 54. Responsive Columns (Percentage Widths) -->
+    <div class="loc">Column 1</div> 
+    <div class="loc">Column 2</div> 
+    <div class="loc">Column 3</div>
+
+<!-- 55. Image Gallery with Flexbox -->
+    <div class="gallery">
+        <img src="./media/tenor.gif"> 
+        <img src="./media/fouge.gif"> 
+        <img src="./media/Gigachad.png"> 
+    </div>
+
+<!-- 56. Profile Card Layout -->
+    <div class="sdcard"> 
+        <img class="litrato" src="./media/KannaKamui.gif"> 
+        <h3>Kanna Kamui</h3> 
+        <p>Bug Eater</p> 
+    </div> 
+<br>
+
+<!-- 58. Responsive Navbar with Flexbox -->
+    <nav> 
+        <div>Logo</div> 
+        <div> 
+            <a href="#">Home</a> 
+            <a href="#">About</a> 
+        </div> 
+    </nav> 
+<!-- 59. Pricing Table Layout -->
+    <div class="pricing"> 
+        <div class="plan">Basic</div> 
+        <div class="plan">Standard</div> 
+        <div class="plan">Premium</div> 
+    </div> 
+<!-- 60. Simple Sidebar Layout-->
+    <div class="sidebar">Sidebar</div> 
+    <div class="content">Main Content</div> 
+
+</body>
+</html>
