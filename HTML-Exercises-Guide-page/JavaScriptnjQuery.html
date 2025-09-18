@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to JavaScript & jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .highlight {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="./HTML-Exercises-Guide.html"><button>Return to HTML Exercises Guide</button></a>
+    <a href="../index.html"><button>Return to Home</button></a>
+    <h1>JavaScript and jQuery</h1>
+<hr>
+
+    <h3>Exercise 1: Change Text of an Element</h3>
+    <div>
+        <p id="e1">Hello jQuery!</p>
+    </div>
+<hr>
+
+    <h3>Exercise 2: Change Background Color</h3>
+    <div id="box2">
+        <p>I wanna go, I wanna go for a ride <br>
+            Hop in the music and rock your body right</p>
+    </div>
+<hr>
+
+    <h3>Exercise 3: Hide an Element <br> Exercise 4: Show an Element</h3>
+    <div>
+        <p id="e34">Rock that body, come on, come on, rock that body (rock your body) <br> 
+            Rock that body, come on, come on, rock that body</p>
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+    </div>
+<hr>
+
+    <h3>Exercise 5: Toggle Visibility</h3>
+    <div>
+        <p id="e5">Rock that body, come on, come on, rock that body (rock your body) <br>
+            Rock that body, come on, come on, rock that body</p>
+        <button id="toggle">Toggle</button>
+    </div>
+<hr>
+
+    <h3>Exercise 6: Add a Class <br> Exercise 7: Remove a Class</h3>
+    <div>
+        <p id="e67">Let me see your body rock <br>
+            Shakin' it from the bottom to top</p>
+        <button id="rock">rock</button>
+        <button id="unrock">unrock</button>
+    </div>
+<hr>
+
+    <h3>Exercise 8: Toggle a Class</h3>
+    <div>
+        <p id="e8">Freak to what the DJ drop <br>
+            We be the ones to make it hot (to make it hot)</p>
+        <button id="rocked">rocked</button>
+    </div>
+<hr>
+
+    <h3>Exercise 9: Change Image Source</h3>
+    <div>
+        <img src="./media/BlackEyedPeas.png" id="2ver" width="300px" height="300px">
+        <br>
+        <button id="bep">Real</button>
+    </div>
+<hr>
+
+    <h3>Exercise 10: Get Input Value</h3>
+    <div>
+        <form>
+            <label>Input:</label> 
+                <input id="liriko" type="text" value="Electric shock, energy like a billion watts" style="width: 240px;">        
+        </form>   
+    </div>
+<hr>
+
+    <h3>Exercise 11: Set Input Value</h3>
+    <div>
+        <form>
+            <label>Pre-fill</label>
+                <input id="lyrics" type="text" style="width: 225px;">
+        </form>
+    </div>
+<hr>
+
+    <h3>Exercise 13: Prepend Content</h3>
+    <div>
+        <p id="e13"><br> We bumpin' in your parking lot</p>
+    </div>
+<hr>
+
+    <h3>Exercise 14: Fade Out Element <br> Exercise 15: Fade In Element</h3>
+    <div id="box1415">
+        <p>When you're comin' up in the spot <br>
+            Don't bring nothin' we call Pink Dot</p>
+    </div>
+    <button id="unrock1">unrock</button>
+    <button id="rock1">rock</button>
+<hr>
+
+    <h3>Exercise 16: Slide Up <br> Exercise 17: Slide Down</h3>
+    <div id="box1617">
+        <p>'Cause we burnin' around the clock <br>
+            Hit the lights and then turn them off <br>
+            If you bring that, don't make you stop</p>
+    </div>
+    <button id="upbtn">unrock</button>
+    <button id="downbtn">rock</button>
+<hr>
+
+    <h3>Exercise 18: Change Multiple CSS Properties</h3>
+    <div>
+        <p id="e18">Like the jungle, we run the block <br>
+            No one rollin' the way we rock, way we rock</p>
+    </div>
+<hr>
+
+    <h3>Exercise 19: Mouseover Event</h3>
+    <div>
+        <p id="e19">I wanna, I wanna rock right now <br>
+            I wanna, I wanna rock right now <br>
+            I wanna, I wanna rock right now</p>
+    </div>
+<hr>
+
+    <h3>Exercise 20: Click Event to Change Text</h3>
+    <div>
+        <button id="e20">I wanna da-, I wanna dance in the lights <br>
+            I wanna ro-, I wanna rock your body <br>
+            I wanna go, I wanna go for a ride <br>
+            Hop in the music and rock your body right</button>
+    </div>
+
+    <script>
+        $("#e1").text("I wanna da-, I wanna dance in the lights; I wanna ro-, I wanna rock your body");
+
+        $("#box2").css("background-color", "lightcoral"); 
+
+        $("#hide").click(function(){ 
+            $("#e34").hide(); 
+        });
+        $("#show").click(function(){ 
+            $("#e34").show(); 
+        });
+
+        $("#toggle").click(function(){ 
+            $("#e5").toggle(); 
+        }); 
+
+        $("#rock").click(function(){
+            $("#e67").addClass("highlight"); 
+        });
+        $("#unrock").click(function(){
+            $("#e67").removeClass("highlight");
+        });
+
+        $("#rocked").click(function(){ 
+            $("#e8").toggleClass("highlight"); 
+        }); 
+
+        $("#bep").click(function() {
+            let img = $("#2ver");
+            if (img.attr("src") === "./media/BlackEyedPeas.png") {
+                img.attr("src", "./media/aBlackEyedPeas.png");
+            } else {
+                img.attr("src", "./media/BlackEyedPeas.png");
+            }
+        });
+
+        let val = $("#lyrics").val(); 
+        console.log(val); 
+
+        $("#lyrics").val("Space be booming, the speakers pop");
+
+        $("#e13").prepend("Galactic, call me Mr. Spock");
+
+        $("#unrock1").click(function(){ 
+            $("#box1415").fadeOut(); 
+        });
+        $("#rock1").click(function(){ 
+            $("#box1415").fadeIn(); 
+        });
+
+        $("#upbtn").click(function(){
+            $("#box1617").slideUp();
+        });
+
+        $("#downbtn").click(function(){
+            $("#box1617").slideDown();
+        });
+        
+        $("#e18").css({ 
+            "color": "white", 
+            "background-color": "black" 
+        });
+
+        $("#e19").mouseover(function(){ 
+            $(this).css("color", "red"); 
+        }); 
+
+        $("#e20").click(function(){ 
+            $(this).html("Rock that body, come on, come on, rock that body (rock that body) <br> Rock that body, come on, come on, rock that body <br> Rock that body, come on, come on, rock that body (rock your body) <br> Rock that body, come on, come on, rock that body"); 
+        }); 
+        
+    </script>
+</body>
+</html>
