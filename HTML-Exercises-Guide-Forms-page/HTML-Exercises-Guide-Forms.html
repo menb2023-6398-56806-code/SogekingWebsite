@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Exercises Guide - Forms</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error { 
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <a href="./HTML-Exercises-Guide.html"><button>Return to HTML Exercises Guide</button></a>
+    <a href="../index.html"><button>Return to Home</button></a>
+    <h1>HTML Exercises Guide - Forms</h1>
+
+    <h3>Exercise 1: Create a Basic Login Form (HTML Only) <br> Exercise 6: Form Validation with HTML Attributes <br> Exercise 7: Add JS Alert on Submit (Native JavaScript) <br> Exercise 9: Toggle Password Visibility (Native JavaScript) </h3>
+
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required minlength="3" maxlength="24"> <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8"> 
+            <button type="button" onclick="togglePwd()">Show/Hide</button> <br>
+
+        <button type="submit">Login</button>
+    </form>
+<hr>
+
+    <h3>Exercise 2: Add Email Input & Placeholder <br> Exercise 10: jQuery Version of Submit Alert</h3>
+    <form id="myForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Yes</button>
+    </form>
+<hr>
+
+    <h3>Exercise 3: Add Radio Buttons & Checkboxes</h3>
+    <h4>Choose your role:</h4>
+    <input type="radio" id="student" name="role" value="student">
+    <label for="student">Student</label>
+    <input type="radio" id="teacher" name="role" value="teacher">
+    <label for="teacher">Teacher</label>
+    <input type="radio" id="teacherSt" name="role" value="teacherSt">
+    <label for="teacherSt">Student Teacher</label>
+    <input type="radio" id="teacherSub" name="role" value="teacherSub">
+    <label for="teacherSub">Substitute Teacher</label>  
+
+    <h4>Select your interests:</h4>
+    <input type="checkbox" id="html" name="interest" value="HTML">
+    <label for="html">HTML</label>
+    <input type="checkbox" id="css" name="interest" value="CSS">
+    <label for="css">CSS</label>
+    <input type="checkbox" id="cpp" name="interest" value="C++">
+    <label for="cpp">C++</label>
+    <input type="checkbox" id="csharp" name="interest" value="C#">
+    <label for="csharp">C#</label>
+<hr>
+
+    <h3>Exercise 4: Add a Dropdown (Select Menu)</h3>
+    <label for="country">Country:</label>
+    <select name="country" id="country">
+        <option value="ph">Philippines</option>
+        <option value="jp">Japan</option>
+        <option value="usa">United States of America</option>
+    </select>
+<hr>
+
+    <h3>Exercise 5: Add a Textarea <br> Exercise 8: Show Live Character Count (Native JavaScript)</h3>
+    <label for="bio">Bio</label><br>
+    <textarea name="bio" id="bio" rows="4" cols="40"></textarea>
+    <p id="count"> 0/100</p>
+<hr>
+
+    <h3>Exercise 11: jQuery Show/Hide Password</h3>
+        <input type="password" id="pwd">
+        <button id="toggle">Show/Hide</button>
+<hr>
+
+    <h3>Exercise 12: jQuery Live Character Count</h3>
+    <label for="message">Bio</label><br>
+    <textarea name="message" id="message" rows="4" cols="40"></textarea>
+    <p id="countjQ"> 0/100</p>
+<hr>
+
+    <h3>Exercise 13: Validate Empty Fields with jQuery <br> Exercise 14: Add CSS Highlight for Errors (with jQuery)</h3>
+    <form id="login">
+        <input type="text" id="user" placeholder="Username"><br>
+        <input type="password" id="pass" placeholder="Password"><br>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Form submitted!");
+        });
+
+        const bio =  document.getElementById("bio")
+        const count = document.getElementById("count")
+
+        bio.addEventListener("input", function() {
+            count.textContent = bio.value.length + "/100";
+        });
+
+        function togglePwd() {
+            const password = document.getElementById("password");
+            password.type = password.type === "password" ? "text" : "password";
+        }
+
+        $("#myForm").submit(function(event){
+            event.preventDefault();
+            alert("Form submitted with jQuery!");
+        });
+
+        $("#toggle").click(function(){
+            let pwd = $("#pwd");
+            
+            pwd.attr("type", pwd.attr("type") === "password" ? "text" : "password");
+        });
+
+        $("#message").on("input", function(){
+            $("#countjQ").text($(this).val().length + "/100");
+        });
+
+        $("#login").submit(function(e){
+            e.preventDefault();
+            if ($("#user").val() === "" || $("#pass").val() === ""){
+                $("#user").addClass("error");
+                $("#pass").addClass("error");
+                alert("Please fill in all fields");
+            } else {
+                $("#user").removeClass("error");
+                $("#pass").removeClass("error");
+                alert("Login successful!");
+            }
+        });
+
+
+    </script>
+</body>
+</html>
