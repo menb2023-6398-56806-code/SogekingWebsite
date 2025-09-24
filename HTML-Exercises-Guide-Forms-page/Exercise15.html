@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 15</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+
+        body { 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            margin: 0;
+        } 
+
+        .registration { 
+            width: 500px; 
+            padding: 20px;
+            background: white; 
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            font-size: large;
+            text-align: left;
+        }
+
+        h2 { 
+            text-align: center; 
+            margin-bottom: 20px; 
+        
+        }
+        img {
+            width: 150px;
+            border-radius: 50%; 
+        }
+
+        .textbox {  
+            width: 300px; 
+            padding: 8px; 
+            margin: 8px auto;
+
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 0px;
+        }
+
+        .up {
+            background-color: lightpink; 
+            color: white; 
+            padding: 10px; 
+            width: 100%; 
+            border: none; 
+            cursor: pointer; 
+        }
+        .up:hover { 
+            background-color: lightskyblue ; 
+        } 
+        
+        #countjQ {
+            font-size: small;
+        }
+
+        .peek {
+            background-color: lightpink; 
+            color: white; 
+            padding: 5px; 
+            width: 50px; 
+            border: none; 
+            cursor: pointer; 
+        }
+        .peek:hover { 
+            background-color: lightskyblue ; 
+        } 
+
+        .error { 
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<!--Features: Username, Email, Password, Confirm Password, Gender, Interests, Submit. 
+    ● Use labels, inputs, radio, checkbox, select. 
+    ● Add validation for empty fields. 
+    ● Add live character count on bio. 
+    ● Add password toggle. -->
+    <div>
+        <a href="./HTML-Exercises-Guide-Forms.html"><button>Return to HTML Exercises Guid - Forms</button></a>
+        <a href="../index.html"><button>Return to Home</button></a> 
+    </div>
+
+    <h3>Exercise 15: Build a Full Registration Form (HTML + jQuery)</h3>
+
+    <div class="registration">
+        <img src="./media/Jeff.jpg">
+        <h2>Registration</h2>
+
+        <form id="regForm">
+            <label for="username">Username:</label> <br>
+                <input class="textbox" type="text" id="username" name="username" placeholder="Fill this field" required minlength="3" maxlength="24">
+            <span id="countjQ"> 0/24</span> <br>
+
+
+            <label for="email">Email Address:</label> <br>
+                <input class="textbox" type="email" id="email" name="email" placeholder="Enter your email..." required>
+            
+
+            <p>Gender:</p>
+            <input type="radio" name="gender" id="male" value="male" >
+                <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+                <label for="female">Female</label>
+            <input type="radio" name="gender" id="notsay" value="notsay" required>
+                <label for="notsay">Rather not Say</label>
+
+
+            <p>Interests:</p>
+            <div class="interests">
+                <div>
+                    <input type="checkbox" id="music" name="interest" value="music">
+                    <label for="music">Music</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="dance" name="interest" value="dance">
+                    <label for="dance">Dance</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="movies" name="interest" value="movies">
+                    <label for="movies">Movies/Shows</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="art" name="interest" value="art">
+                    <label for="art">Art</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="sports" name="interest" value="sports">
+                    <label for="sports">Sports</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="cooking" name="interest" value="cooking">
+                    <label for="cooking">Cooking/Baking</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="reading" name="interest" value="reading">
+                    <label for="reading">Reading</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="gaming" name="interest" value="gaming">
+                    <label for="gaming">Gaming</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="fitness" name="interest" value="fitness">
+                    <label for="fitness">Fitness/Exercise</label>
+                </div>
+            </div>
+            <p id="interest-error" style="color:red; display:none;">
+                Please select at least one interest.
+            </p>
+            <br>
+
+            <label for="password">Password:</label> <br>
+                <input class="textbox" type="password" id="password" name="password" placeholder="minimum of 8 length" required minlength="8">
+            <button class="peek" type="button" id="togglePwd">Show</button> <br>
+            <label for="passwordC">Confim Password:</label> <br>
+                <input class="textbox" type="password" id="passwordC" name="passwordC" placeholder="Re-enter password" required minlength="8"> <br> <br>
+            <p id="pwd-error" style="color:red; display:none;">Passwords do not match.</p>
+
+            <button class="up" type="submit">Sign-up</button>
+        </form>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $("#username").on("input", function(){
+                $("#countjQ").text($(this).val().length + "/24");
+            });
+            
+            $("#regForm").on("submit", function(e){
+                if ($('input[name="interest"]:checked').length === 0) {
+                    e.preventDefault();
+                    $("#interest-error").show(); // show inline error message
+                } else {
+                    $("#interest-error").hide(); // hide error if valid
+                }
+
+                let valid = true;
+                let pwd = $("#password").val();
+                let pwdC = $("#passwordC").val();
+
+                if (pwd !== pwdC) {
+                    $("#pwd-error").show();
+                    $("#passwordC").addClass("error");
+                    valid = false;
+                } else {
+                    $("#pwd-error").hide();
+                    $("#passwordC").removeClass("error");
+                }
+
+                if (!valid) {
+                    e.preventDefault();
+                }
+            });
+
+            $("#togglePwd").on("click", function() {
+                let fields = $("#password");
+
+                if (fields.attr("type") === "password") {
+                    fields.attr("type", "text");
+                    $(this).text("Hide");
+                } else {
+                    fields.attr("type", "password");
+                    $(this).text("Show");
+                }
+            });
+
+            
+        });
+        
+        
+    </script>
+</body>
+</html>
