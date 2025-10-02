@@ -2,8 +2,11 @@ Sir, Meron po ito action
 
 https://menb2023-6398-56806-code.github.io/SogekingWebsite/
 
-AI1:
+IA1:
 https://menb2023-6398-56806-code.github.io/SogekingWebsite/HTML-Exercises-Guide-page/HTML-Exercises-Guide.html
 
-AI2:
+IA2:
 https://menb2023-6398-56806-code.github.io/SogekingWebsite/HTML-Exercises-Guide-Forms-page/HTML-Exercises-Guide-Forms.html
+
+IA3:
+https://menb2023-6398-56806-code.github.io/SogekingWebsite/Bootstrap%20Exercise/Bootstrap-Exercise.html
